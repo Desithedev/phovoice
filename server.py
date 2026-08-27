@@ -139,6 +139,12 @@ def restore_punctuation(text: str, segments: list = None):
 @app.on_event("startup")
 def prewarm_models():
     def _warm():
+        try:
+            from download_models import ensure_models_downloaded
+            ensure_models_downloaded(config.MODELS_DIR)
+        except Exception as e:
+            logger.warning(f"Model auto-download check: {e}")
+
         logger.info("🔥 Đang tải sẵn model 68M và ViBERT Capu vào RAM...")
         try:
             get_offline_asr("68M")
