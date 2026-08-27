@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  phovoice-web:
+    build: .
+    container_name: phovoice_web_app
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    environment:
+      - PHOVOICE_HOST=0.0.0.0
+      - PHOVOICE_PORT=8000

@@ -1,0 +1,19 @@
+[Unit]
+Description=PhoVoice AI Web Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/phovoice-vps-web
+ExecStart=/var/www/phovoice-vps-web/.venv/bin/python server.py
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/phovoice.log
+StandardError=append:/var/log/phovoice_err.log
+Environment=PYTHONUNBUFFERED=1
+Environment=PHOVOICE_HOST=0.0.0.0
+Environment=PHOVOICE_PORT=8000
+
+[Install]
+WantedBy=multi-user.target

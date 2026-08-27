@@ -1,0 +1,473 @@
+/* ==========================================================================
+   PhoVoice AI Studio — Google Stitch Design System (React + Vite)
+   Linear Dark Slate Palette & Ultra-Premium Responsive Aesthetic
+   ========================================================================== */
+
+:root {
+  --bg-canvas: #070a0f;
+  --bg-surface: #0d121c;
+  --bg-surface-elevated: #131b28;
+  --bg-surface-hover: #182335;
+  --bg-input: #090e17;
+  
+  --border-subtle: #172131;
+  --border-active: #24344d;
+  --border-glow: rgba(16, 185, 129, 0.4);
+  
+  --accent-emerald: #10b981;
+  --accent-emerald-hover: #059669;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.15);
+  
+  --accent-cyan: #06b6d4;
+  --accent-purple: #8b5cf6;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  --shadow-emerald: 0 4px 20px rgba(16, 185, 129, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* ─── Top Glassmorphic Navigation Bar ─── */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(7, 10, 15, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+  font-family: var(--font-heading);
+}
+
+.brand-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #10b981, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.brand-badge {
+  background: var(--accent-emerald-glow);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-tab-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  padding: 9px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-tab-btn.active {
+  color: #ffffff;
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-active);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Main Container ─── */
+.app-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 24px 90px 24px;
+}
+
+/* ─── Bento Grid & Cards ─── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 24px;
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-active);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.01em;
+}
+
+/* ─── File Dropzone ─── */
+.dropzone {
+  border: 2px dashed var(--border-active);
+  background: var(--bg-input);
+  border-radius: var(--radius-md);
+  padding: 36px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.dropzone:hover, .dropzone.dragover {
+  border-color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.dropzone-icon-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-emerald);
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  box-shadow: var(--shadow-emerald);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-active);
+}
+
+.btn-large {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Inputs ─── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-control {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  font-size: 13px;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.form-control:focus {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* ─── Transcript View ─── */
+.transcript-box {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  min-height: 300px;
+  max-height: 480px;
+  overflow-y: auto;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  user-select: text;
+}
+
+.segment-row {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background 0.15s ease;
+}
+
+.segment-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.segment-time-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Live Mic Pulse ─── */
+.live-mic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px 20px;
+}
+
+.mic-button {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--bg-surface-elevated);
+  border: 2px solid var(--border-active);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.mic-button:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-emerald);
+}
+
+.mic-button.recording {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+  border-color: #ffffff;
+  animation: pulseNeon 1.6s infinite;
+}
+
+@keyframes pulseNeon {
+  0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+  70% { box-shadow: 0 0 0 28px rgba(244, 63, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+}
+
+.timer-lcd-display {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-emerald);
+}
+
+/* ─── 3D Flashcard Flipper ─── */
+.flashcard-wrapper {
+  perspective: 1000px;
+  cursor: pointer;
+  height: 180px;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flashcard-wrapper.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+}
+
+.flashcard-front {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, #131b28, #182335);
+  color: var(--accent-cyan);
+  transform: rotateY(180deg);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* ─── Bottom Mobile Nav ─── */
+.bottom-nav-mobile {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background: rgba(7, 10, 15, 0.94);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-subtle);
+  z-index: 100;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.bottom-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px;
+  transition: all 0.15s ease;
+}
+
+.bottom-nav-btn.active {
+  color: var(--accent-emerald);
+}
+
+@media (max-width: 768px) {
+  .desktop-menu { display: none; }
+  .bottom-nav-mobile { display: flex; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .app-container { padding: 18px 16px 95px 16px; }
+}
